@@ -1,0 +1,20 @@
+#inputar letra maiuscula
+#imputar simbolos e espaços
+
+import string as stg
+from random import random,choice
+
+#choice é uma função de random, onde vamos passar uma lista para o programa e ele irá escolher um item dessa lista de maneira aleatória
+#String é um módulo do python onde podemos trabalhar com funções string
+#para esse gerador, eu preciso gerar uma lista com todas as letras do alfabeto
+#a função para gerar isso é a "ascii_lowercase", ela vai gerar o alfabeto em letras minúsculas
+#print(stg.ascii_lowercase)
+tamanho = 10
+senha = ""
+listSen = stg.ascii_letters #uma lista com todas as letras maiúsculas e minúsculas
+listSen+= stg.digits
+listSen+= stg.punctuation
+for a in range(tamanho):
+    senha+=choice(listSen)
+
+print(senha)
