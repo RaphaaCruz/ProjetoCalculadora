@@ -216,7 +216,8 @@ class Ui_Dialog(object):
         # manter o valor que já está na tela
         tela = self.label.text()
         if tela.startswith("-"):
-            self.label.setText(tela.replace("-",""))
+            x = tela.find("-")+1
+            self.label.setText(tela.replace("-","",x))
         else:
             self.label.setText(f'-{tela}')
 
@@ -228,10 +229,11 @@ class Ui_Dialog(object):
         #resultado da variavel tela
         self.label.setText(tela)
 
-    #preciso arrumar o ponto final
     def pontuar(self):
         tela = self.label.text()
         if tela[-1] == ".":
+            pass
+        elif tela.__contains__("."):
             pass
         else:
             self.label.setText(f'{tela}.')
@@ -244,6 +246,7 @@ class Ui_Dialog(object):
             #substituir o zero inicial por vazio
             if self.label.text() == "0":
                 self.label.setText("")
+                self.label.setText(f'{click}')
             else:
                 #Concatenar valores preechidos
                 self.label.setText(f'{self.label.text()}{click}')
